@@ -1,0 +1,44 @@
+# Install layout if someone points INSTALL_ROOT at this clone.
+# This repo is installer and docs only — never commit tool trees or results.
+tools/
+venvs/
+bin/
+output/
+logs/
+osint/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Node (social-analyzer) and Go
+node_modules/
+vendor/
+
+# Secrets and local config
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_ed25519
+credentials.json
+secrets.json
+*.token
+
+# Editor and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Logs and scratch
+*.log

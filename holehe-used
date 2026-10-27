@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# holehe-used — run holehe showing only sites where the email is used
+# Usage: holehe-used email@example.com [extra holehe args...]
+set -euo pipefail
+HOLEHE_BIN="${HOLEHE_BIN:-$HOME/osint/bin/holehe}"
+if [[ ! -x "$HOLEHE_BIN" ]]; then
+  HOLEHE_BIN="$HOME/osint/venvs/holehe/bin/holehe"
+fi
+if [[ ! -x "$HOLEHE_BIN" ]]; then
+  echo "holehe not found. Expected $HOME/osint/bin/holehe" >&2
+  exit 1
+fi
+if [[ $# -lt 1 ]]; then
+  echo "Usage: holehe-used email@example.com [extra args]" >&2
+  exit 1
+fi
+exec "$HOLEHE_BIN" --only-used --no-clear "$@"
